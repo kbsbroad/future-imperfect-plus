@@ -1,0 +1,32 @@
+<head>
+    <title>{{ .Scratch.Get "html-title" }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{ .Hugo.Generator }}
+    
+    {{ with .Params.author }}
+    <meta name="author" content="{{ . }}">
+    {{ end }}
+    
+    {{ with .Description }}
+    <meta name="description" content="{{ . }}">
+    {{ else }}
+        {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}">
+        {{ end }}
+    {{ end }}
+    
+    {{ template "_internal/twitter_cards.html" . }}
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/google_news.html" . }}
+    
+    {{ "<!--[if lt IE 8]>" | safeHTML }}<script src="/assets/js/ie/html5shiv.js"></script>{{ "<![endif]-->" | safeHTML }}
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    {{ "<!--[if lt IE 9]>" | safeHTML }}<link rel="stylesheet" href="/assets/css/ie9.css" />{{ "<![endif]-->" | safeHTML }}
+    {{ "<!--[if lt IE 8]>" | safeHTML }}<link rel="stylesheet" href="/assets/css/ie8.css" />{{ "<![endif]-->" | safeHTML }}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ .Scratch.Get "hightlightVersion" }}/styles/{{ .Scratch.Get "highlightTheme" }}.min.css">
+    {{ if not (in (printf "%#v" .Site.BaseURL) "localhost") }}
+        {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+</head>

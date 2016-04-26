@@ -1,0 +1,13 @@
+<div class="title">
+    <h2>
+    {{ if $.Scratch.Get "single" }}
+        {{ .Title }}
+        {{ $.Scratch.Set "single" false }}
+    {{else}}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{end}}
+    </h2>
+    {{ with .Description }}
+    <p>{{ . }}</p>
+    {{ end }}
+</div>

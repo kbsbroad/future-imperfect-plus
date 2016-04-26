@@ -1,0 +1,12 @@
+<div class="meta">
+    {{ if .Site.Params.orderByPublishDate }}
+        {{ $.Scratch.Set "dateType" .PublishDate }}
+    {{ else }}
+        {{ $.Scratch.Set "dateType" .Date }}
+    {{ end }}
+
+    <time class="published" datetime='{{ ($.Scratch.Get "dateType").Format "2006-01-02" }}'>
+        {{ ($.Scratch.Get "dateType").Format "2006년 01월 02일" }}
+    </time>
+    <span class="author"><span class="name">{{ .Params.author }}</span><img src="{{ .Site.Params.avatar.src }}" alt="{{ .Params.author }}" /></span>
+</div>

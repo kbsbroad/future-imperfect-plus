@@ -1,0 +1,28 @@
+<header id="header">
+    {{ if .Site.Title }}
+    <h1>
+        <a href="{{ .Site.BaseURL }}">{{ .Site.Title | safeHTML }}</a>
+        <i class="fa fa-flask" aria-hidden="true"></i>
+    </h1>
+    {{ end }}
+    <nav class="links">
+        <ul>
+            {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+            {{ end}}
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search" />
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>

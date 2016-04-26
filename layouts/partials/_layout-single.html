@@ -1,0 +1,40 @@
+{{ partial "variables" . }}
+<!DOCTYPE HTML>
+{{ partial "theme-license" . }}
+<html>
+
+{{ partial "html-head" . }}
+
+<body>
+    <div id="wrapper">
+        {{ partial "nav" . }}
+
+        <div id="main">
+            <article class="post">
+                {{ $.Scratch.Set "single" true }}
+                {{ partial "post-featured" . }}
+                {{ partial "post-header" . }}
+                
+                {{ .Content }}
+            </article>
+            
+            {{ partial "prev-next" . }}
+        </div>
+
+        <section id="sidebar">
+            <!-- Intro -->
+			{{ partial "intro" . }}
+
+            <!-- About -->
+			{{ partial "about" . }}
+
+            <!-- Footer -->
+			{{ partial "footer" . }}
+        </section>
+    </div>
+    
+    {{ partial "gototop" .}}
+    {{ partial "scripts" .}}
+</body>
+
+</html>

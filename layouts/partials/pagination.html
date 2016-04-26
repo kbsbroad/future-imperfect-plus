@@ -1,0 +1,10 @@
+<!-- Pagination -->
+<ul class="actions pagination">
+    {{ if .Paginator.HasPrev }}
+        <li><a href="{{ .Paginator.Prev.URL }}" class="button big previous">이전 페이지</a></li>
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}
+        <li><a href="{{ .Paginator.Next.URL }}" class="button big next">다음 페이지</a></li>
+    {{ end }}
+</ul>

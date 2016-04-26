@@ -1,0 +1,19 @@
+<article class="post">
+    {{ partial "post-featured" . }}
+    <header>
+        {{ partial "post-title" . }}
+        {{ partial "post-meta" . }}
+    </header>
+    
+    <p>{{ .Summary }}</p>
+
+    <footer>
+        {{ if .Truncated }}
+        <ul class="actions">
+            <li><a href="{{ .Permalink }}" class="button big">계속 읽기</a></li>
+        </ul>
+        {{ end }}
+        
+        {{ partial "post-category" . }}
+    </footer>
+</article>

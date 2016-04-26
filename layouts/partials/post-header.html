@@ -1,0 +1,8 @@
+<header>
+    {{ partial "post-title" . }}
+    
+    {{ if .Scratch.Get "showMeta" }}
+        {{ partial "post-meta" . }}
+        {{ .Scratch.Set "showMeta" false }}
+    {{ end }}
+</header>

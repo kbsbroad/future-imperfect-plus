@@ -1,0 +1,19 @@
+{{ if .Title }}
+    {{ .Scratch.Set "html-title" .Title }}
+{{ else if .Site.Title }}
+    {{ .Scratch.Set "html-title" .Site.Title }}
+{{ else }}
+    {{ .Scratch.Set "html-title" "Untitled" }}
+{{ end }}
+
+{{ if isset .Site.Params "hightlightVersion" }}
+    {{ .Scratch.Set "hightlightVersion" .Site.Params.hightlightVersion }}
+{{ else }}
+    {{ .Scratch.Set "hightlightVersion" "9.3.0" }}
+{{ end }}
+
+{{ if isset .Site.Params "highlightTheme" }}
+    {{ .Scratch.Set "highlightTheme" .Site.Params.highlightTheme }}
+{{ else }}
+    {{ .Scratch.Set "highlightTheme" "default" }}
+{{ end }}
